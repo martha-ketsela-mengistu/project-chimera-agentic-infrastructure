@@ -1,0 +1,6 @@
+.python-version
+docs/
+.env
+uv.lock
+.vscode/
+.cursor/
