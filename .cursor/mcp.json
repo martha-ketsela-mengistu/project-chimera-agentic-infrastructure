@@ -1,0 +1,46 @@
+{
+  "mcpServers": {
+    "tenxfeedbackanalytics": {
+      "name": "tenxanalysismcp",
+      "url": "https://mcppulse.10academy.org/proxy",
+      "headers": {
+        "X-Device": "windows",
+        "X-Coding-Tool": "cursor"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "g:/projects/project-chimera-agentic-infrastructure"
+      ]
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git",
+        "--repository",
+        "g:/projects/project-chimera-agentic-infrastructure"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "terminal": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-terminal"
+      ],
+      "env": {
+        "MCP_TERMINAL_ALLOWED_COMMANDS": "npm,node,npx,git,pwsh,powershell,cmd"
+      }
+    }
+  }
+}
