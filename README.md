@@ -6,6 +6,42 @@ To architect a robust "Factory" for the creation and governance of **Autonomous 
 
 ---
 
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- **[uv](https://github.com/astral-sh/uv)**: Fast Python package manager.
+- **Docker**: For running the agent in a containerized environment.
+- **Make**: (Optional) For short-cut commands.
+
+### Setup
+
+Install dependencies and set up the local environment:
+
+```bash
+# Using uv directly
+uv sync --all-extras --dev
+
+# Or using Makefile
+make setup
+```
+
+### Running Tests & Compliance
+
+```bash
+# Run spec compliance check
+make spec-check
+
+# Run tests in Docker (Recommended)
+make test
+
+# Run tests locally
+make test-local
+```
+
+---
+
+
 ## 🏗️ Core Engineering Philosophies
 
 This repository adheres to **Spec-Driven Development (SDD)** and **Agentic Orchestration**:
@@ -47,27 +83,25 @@ project-chimera-agentic-infrastructure/
 ├── .cursor/
 │   ├── mcp.json              # MCP server configurations
 │   └── rules/                # Cursor AI agent rules
-│       ├── agent.mdc         # Trigger logging rules
-│       └── specs-first.mdc   # Prime Directive: specs before code
 ├── .github/
-│   └── agents/               # GitHub Spec Kit agents
-│       └── prompts/          # Spec Kit workflow prompts
+│   └── workflows/            # CI/CD Workflows
+│       └── main.yml          # GitHub Actions: Lint & Test
 ├── .specify/
 │   ├── memory/
 │   │   └── constitution.md   # Non-negotiable principles
-│   ├── scripts/powershell/   # SDD workflow automation
-│   └── templates/            # Spec/plan/task templates
-├── research/                 # Research and analysis
-│   ├── reading_notes.md      # SRS summary & analysis
-│   ├── architecture_strategy.md  # Architecture decisions
-│   └── tooling_strategy.md   # MCP tooling documentation
+├── research/                 # Research and analysis documentation
 ├── specs/                    # Specifications (GitHub Spec Kit)
-│   ├── _meta.md              # High-level vision and constraints
-│   ├── functional.md         # Functional requirements & user stories
-│   ├── technical.md          # API contracts & database schema
-│   └── 001-chimera-core-specs/  # Feature branch specs
-└── skills/                   # Skill definitions
-    └── README.md             # Skill Input/Output JSON contracts
+│   ├── _meta.md              # Vision and constraints
+│   ├── functional.md         # Functional requirements
+│   ├── technical.md          # API contracts & schema
+│   └── openclaw_integration.md # OpenClaw protocol spec
+├── skills/                   # Skill definitions & contracts
+├── scripts/                  # Automation scripts
+│   └── spec_check.py         # Spec compliance checker
+├── tests/                    # TDD failing tests
+├── Makefile                  # Build and test orchestration
+├── Dockerfile                # Agent container definition
+└── pyproject.toml            # Project metadata & dependencies
 ```
 
 ---
@@ -120,24 +154,29 @@ Before writing code, the AI agent MUST:
 
 See [`.cursor/rules/specs-first.mdc`](.cursor/rules/specs-first.mdc) for details.
 
-Successfully configured and connected the Tenx MCP Sense Server to Cursor IDE. Logs
-2026-02-04 17:57:52.699 [info] Connected to streamableHttp server, fetching offerings
-2026-02-04 17:57:55.707 [info] listOfferings: Found 3 tools
-2026-02-04 17:57:56.549 [info] listPrompts: Found 1 prompts
-2026-02-04 17:58:01.886 [info] listResources: Found 0 resources
-2026-02-04 17:58:01.887 [info] Found 3 tools, 1 prompts, and 0 resources
+---
+
+## 🔌 Tenx MCP Connection Logs
+
+The following logs verify the successful configuration and connection to the Tenx MCP Sense Server:
+
+```text
 2026-02-04 17:58:03.432 [info] Handling GetInstructions action
 2026-02-04 18:00:27.362 [info] Handling ListToolsRaw action
-2026-02-04 18:00:27.377 [info] Handling CallTool action for tool 'log_passage_time_trigger' 
-with toolCallId: call_yJZ9mo9TIQfiUpJRx8FuReNj
+2026-02-04 18:00:27.377 [info] Handling CallTool action for tool 'log_passage_time_trigger' with toolCallId: call_yJZ9mo9TIQfiUpJRx8FuReNj
 fc_0849005ca377ba750169835f096be48198a694e72c94a422bf
-2026-02-04 18:00:27.386 [info] Calling tool 'log_passage_time_trigger' with toolCallId: 
-call_yJZ9mo9TIQfiUpJRx8FuReNj
+2026-02-04 18:00:27.386 [info] Calling tool 'log_passage_time_trigger' with toolCallId: call_yJZ9mo9TIQfiUpJRx8FuReNj
 fc_0849005ca377ba750169835f096be48198a694e72c94a422bf
 2026-02-04 18:00:28.330 [info] Successfully called tool 'log_passage_time_trigger'
 2026-02-04 18:01:53.865 [info] Handling ListOfferings action, server stored: true
-
+2026-02-04 18:01:53.865 [info] Connected to streamableHttp server, fetching offerings
+2026-02-04 18:01:55.820 [info] listOfferings: Found 3 tools
+2026-02-04 18:01:56.787 [info] listPrompts: Found 1 prompts
+2026-02-04 18:02:00.298 [info] listResources: Found 0 resources
+2026-02-04 18:02:00.298 [info] Found 3 tools, 1 prompts, and 0 resources
+2026-02-04 18:02:00.300 [info] Handling GetInstructions action
+```
 
 ---
 
-**Version**: 1.0.0 | **Last Updated**: 2026-02-04
+**Version**: 1.1.0 | **Last Updated**: 2026-02-06
