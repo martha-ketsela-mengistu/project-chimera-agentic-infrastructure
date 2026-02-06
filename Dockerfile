@@ -22,7 +22,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 # Install dependencies
-RUN uv sync --frozen --no-install-project
+RUN uv sync --all-extras
 
 # Copy the rest of the application
 COPY . .
