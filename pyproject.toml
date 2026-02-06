@@ -1,7 +1,7 @@
 [project]
 name = "project-chimera-agentic-infrastructure"
 version = "0.1.0"
-description = "robust "Factory" for the creation and governance of Autonomous AI Influencers."
+description = 'robust "Factory" for the creation and governance of Autonomous AI Influencers.'
 readme = "README.md"
 requires-python = ">=3.14"
 
