@@ -1,5 +1,4 @@
 import pytest
-from datetime import datetime
 # Note: These imports will fail until the implementation is created
 # from skills.trend_fetcher import TrendFetcher
 # from schemas.trend import TrendAlert
