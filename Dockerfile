@@ -27,8 +27,5 @@ RUN uv sync --all-extras
 # Copy the rest of the application
 COPY . .
 
-# Install the project itself
-RUN uv sync --frozen
-
 # Default command (can be overridden)
 CMD ["uv", "run", "python", "main.py"]
