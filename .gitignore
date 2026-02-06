@@ -2,3 +2,5 @@
 docs/
 .env
 uv.lock
+.pytest_cache/
+__pycache__/

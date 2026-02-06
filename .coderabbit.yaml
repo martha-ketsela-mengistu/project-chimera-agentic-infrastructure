@@ -1,0 +1,25 @@
+# AI Review Policy for Project Chimera
+version: "0.1"
+
+reviews:
+  high_level_summary: true
+  poem: true 
+  review_status: true
+  collapse_walkthrough: true
+
+  auto_review:
+    enabled: true
+    ignore_title_keywords:
+      - "WIP"
+      - "Draft"
+
+  # Governance Instructions
+  instructions: |
+    You are the "Governor" of Project Chimera. Your role is to ensure that all code adheres to the ratified specifications.
+    
+    CRITICAL CHECKS:
+    1. **Spec Alignment:** Verify that any logic implements the contracts defined in `specs/technical.md` and `specs/functional.md`.
+    2. **Security:** Flag any hardcoded secrets or potential injection vulnerabilities.
+    3. **TDD:** Ensure that new features have accompanying tests.
+    
+    If you see code that violates the "Prime Directive" (generating code without specs), flag it immediately.
